@@ -1,10 +1,35 @@
 @import "tailwindcss";
 
+:root {
+  --color-primary: #1a73e8;
+  --color-secondary: #e37400;
+  --color-dark: #121212;
+  --color-bg: #2f2f2f;
+  --color-text: #ffffff;
+}
+
 body {
   background-color: black;
   color: white;
+  font-family: "Poppins", "sans-serif";
 }
 
-.bg-dark {
-  background-color: #121212;
+@layer components {
+  .input-dark {
+    @apply p-4 w-full border-none outline-none rounded;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+  .form {
+    @apply w-full max-w-md flex flex-col items-start space-y-3 h-[90vh];
+    background-color: var(--color-dark);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #252525 inset !important;
+  -webkit-text-fill-color: #6d6d6d !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
