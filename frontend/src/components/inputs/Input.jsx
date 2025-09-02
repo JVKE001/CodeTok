@@ -14,7 +14,7 @@ const Input = ({
       value={value}
       onChange={onChange}
       required={required}
-      className="input-dark"
+      className="bg-gray input"
     />
   );
 };

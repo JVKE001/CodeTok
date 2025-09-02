@@ -1,7 +1,6 @@
-import LoginPage from "./pages/LoginPage";
+import LoginForm from "./components/forms/LoginForm";
 
 function App() {
-  return <LoginPage />;
+  return <LoginForm />;
 }
-
 export default App;

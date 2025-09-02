@@ -4,44 +4,33 @@ const Button = ({
   text,
   onClick,
   type = "button",
-  color = "blue",
+  color = "primary",
   size = "md",
   variant = "solid",
   className,
 }) => {
-  // Solid buttons
-  const solidVariants = {
-    blue: "bg-blue-600 hover:bg-blue-700 text-white",
-    green: "bg-green-600 hover:bg-green-700 text-white",
-    red: "bg-red-600 hover:bg-red-700 text-white",
-    yellow: "bg-yellow-600 hover:bg-yellow-700 text-black",
+  const styles = {
+    solid: {
+      primary: "bg-primary text-white hover:brightness-90",
+      secondary: "bg-secondary text-white hover:brightness-90",
+      dark: "bg-dark text-white hover:brightness-90",
+      gray: "bg-gray text-white hover:brightness-90",
+    },
+    outline: {
+      primary: "border border-primary text-primary hover:bg-primary/10",
+      secondary: "border border-secondary text-secondary hover:bg-secondary/10",
+      dark: "border border-dark text-dark hover:bg-dark/10",
+      gray: "border border-gray text-gray hover:bg-gray/10",
+    },
+    ghost: {
+      default: "hover:underline",
+    },
   };
 
-  // Outline buttons
-  const outlineVariants = {
-    blue: "border border-blue-600 text-blue-600 hover:bg-blue-50",
-    green: "border border-green-600 text-green-600 hover:bg-green-50",
-    red: "border border-red-600 text-red-600 hover:bg-red-50",
-    yellow: "border border-yellow-600 text-yellow-600 hover:bg-yellow-50",
-  };
-
-  // Ghost buttons
-  const ghostVariants = {
-    default: "hover:underline",
-  };
-
-  // Sizes (only for solid/outline)
-  const sizeVariants = {
+  const sizes = {
     sm: "px-2 py-1 text-sm",
     md: "px-4 py-2 text-base",
     lg: "px-6 py-3 text-lg",
-  };
-
-  // Variant logic
-  const variantStyles = {
-    solid: solidVariants[color],
-    outline: outlineVariants[color],
-    ghost: ghostVariants.default,
   };
 
   return (
@@ -49,9 +38,9 @@ const Button = ({
       type={type}
       onClick={onClick}
       className={clsx(
-        "transition duration-500 font-medium cursor-pointer",
-        variant !== "ghost" && sizeVariants[size],
-        variantStyles[variant] || solidVariants.blue,
+        "transition duration-300 font-medium",
+        variant !== "ghost" && sizes[size],
+        styles[variant][color] || styles[variant].default,
         className
       )}
     >

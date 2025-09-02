@@ -1,31 +1,67 @@
 @import "tailwindcss";
 
+/* Define custom design tokens */
 :root {
   --color-primary: #1a73e8;
   --color-secondary: #e37400;
   --color-dark: #121212;
-  --color-bg: #2f2f2f;
-  --color-text: #ffffff;
+  --color-gray: #2f2f2f;
+  --color-text: #ebebeb;
 }
 
+/* Register them as Tailwind theme tokens */
+@theme {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-dark: var(--color-dark);
+  --color-gray: var(--color-gray);
+  --color-text: var(--color-text);
+
+  --font-sans: "Poppins", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+}
+
+/* Base styles */
 body {
   background-color: black;
-  color: white;
-  font-family: "Poppins", "sans-serif";
+  color: var(--color-text);
+  font-family: var(--font-sans);
 }
 
+@layer base {
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+/* Custom utilities */
+@utility v-stack {
+  @apply flex flex-col;
+}
+
+/* @utility h-stack {
+  @apply flex flex-row;
+} */
+
+/* components */
 @layer components {
-  .input-dark {
-    @apply p-4 w-full border-none outline-none rounded;
-    background-color: var(--color-bg);
-    color: var(--color-text);
+  .input {
+    @apply p-4 w-full border-none outline-none;
   }
   .form {
-    @apply w-full max-w-md flex flex-col items-start space-y-3 h-[90vh];
-    background-color: var(--color-dark);
+    @apply w-full max-w-md h-[90vh] bg-dark flex flex-col items-start space-y-3;
   }
 }
 
+/* Autofill fix stays as plain CSS */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {

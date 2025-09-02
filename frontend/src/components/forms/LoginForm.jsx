@@ -19,14 +19,15 @@ const LoginForm = ({ onSubmit }) => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-dark">
-      <form onSubmit={handleSubmit} className="form flex justify-between">
+    <div className="flex justify-center items-center h-screen">
+      <form
+        onSubmit={handleSubmit}
+        className="form bg-dark flex justify-between"
+      >
         <div className="px-10 w-full ">
-          <h1 className="font-bold text-3xl text-center pt-10 pb-5 mx-auto">
-            Log in
-          </h1>
+          <h1 className="text-center pt-10 pb-5">Log in</h1>
           <div className="w-full mb-4">
-            <h3 className="text-xs mb-3.5">Email or username</h3>
+            <h3 className="mb-3.5">Email or username</h3>
             <Input
               name="email"
               type="email"
@@ -47,11 +48,11 @@ const LoginForm = ({ onSubmit }) => {
           <Button
             text="Forgot password?"
             variant="ghost"
-            className="mb-2.5 text-[10px]"
+            className="mb-2.5 text-[12px]"
           />
-          <Button text="Log in" type="submit" className="w-full" />
+          <Button text="Log in" type="submit" color="gray" className="w-full" />
         </div>
-        <div className="input-dark border-t border-red-400 w-full flex justify-center text-sm">
+        <div className="bg-gray p-5 border-t border-gray-600 w-full flex justify-center text-sm">
           <p>
             Don't have an account?&nbsp;
             <Button
